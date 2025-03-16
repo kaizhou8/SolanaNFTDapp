@@ -1,0 +1,28 @@
+[package]
+name = "nft-contract"
+version = "0.1.0"
+edition = "2021"
+description = "Solana NFT Smart Contract"
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT"
+repository = "https://github.com/yourusername/SolanaNFT"
+
+[dependencies]
+solana-program = "1.16"
+borsh = "0.10"
+borsh-derive = "0.10"
+thiserror = "1.0"
+spl-token = { version = "3.5", features = ["no-entrypoint"] }
+
+[dev-dependencies]
+solana-program-test = "1.16"
+solana-sdk = "1.16"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1
+opt-level = 3 
